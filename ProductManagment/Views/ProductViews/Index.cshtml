@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ProductManagment.Models.ProductView>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.productVm.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productVm.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productVm.Section)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productVm.Material)
+            </th>
+            <th>
+                Kategoria
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productVm.ProductPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.productVm.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.brandVm.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sectionVm.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.materialVm.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prodTypeVm.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productVm.ProductPrice)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.productVm.Id">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.productVm.Id">Delete</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
